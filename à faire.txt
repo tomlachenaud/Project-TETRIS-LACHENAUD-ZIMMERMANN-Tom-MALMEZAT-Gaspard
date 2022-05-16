@@ -1,0 +1,15 @@
+1. Création d'une zone neutre pour le départ de la pièce. 
+
+explication : Il faut avant de faire descendre la pièce dans le tableau créer une zone où toutes les pièces pourront tenir et ensuite les descendre.
+
+solution : augmenter le tableau de 4 cases en hauteur (tableau[TAILLE+4][TAILLE])
+
+pour Tom : j'ai fait la modif dans la partie gaspard car j'en avais besoin je te laisse la faire sur le reste je n'ai rien compris à ton charabia 
+
+ATTENTION : vérification à créer lorsque l'utilisateur veut poser une nouvelle pièce pour qu'elle n'aille pas dans la zone neutre 
+
+2. 
+
+3.
+
+4.
