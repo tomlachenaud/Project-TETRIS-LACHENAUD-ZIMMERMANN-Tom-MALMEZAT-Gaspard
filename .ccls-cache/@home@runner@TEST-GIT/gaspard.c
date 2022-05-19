@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "affiche_alea_piece.c"
+#include "print_rand_pieces.c"
 #define TAILLE 10
 #define zoneN 4
 

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define TAILLE 10
 
-void aff_tab(char tab[TAILLE][TAILLE]){
+void aff_tab(char tab[TAILLE+4][TAILLE]){
 	int i,j;
 	printf(" A B C D E F G H I J\n");
 	printf(" ___________________\n");
