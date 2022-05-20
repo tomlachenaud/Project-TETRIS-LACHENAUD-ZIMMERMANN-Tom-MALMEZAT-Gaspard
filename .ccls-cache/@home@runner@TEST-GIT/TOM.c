@@ -1,6 +1,7 @@
 #include "print_rand_pieces.c"
 #include "print_table_V2.c"
 #include "verif_line.c"
+#include"verify_column.c"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -54,9 +55,13 @@ int main() {
       tab[i][j] = ' ';
     }
   }
+  for (i = 0 ; i<SIZE;i++){
+    tab[i][10]=' ';
+  }
 
   do {
-    r = rand()%7;
+    r = 0;
+
     aff_tab(tab);
     if (r == 0) {
       printf("Voici la pièce\n");
@@ -86,10 +91,15 @@ int main() {
       pieceZ(Z1, Z2);
       scanf("%d", &o);
     }
+
     printf("Saisir une colonne");
     scanf("%d", &c);
-
+    
     if (r == 0) {
+      if(c>9){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+      }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 > l2) {
@@ -100,6 +110,7 @@ int main() {
       tab[l1][c] = '$';
       tab[l1 - 1][c] = '$';
     } else if (r == 1 && o == 1) {
+
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -117,12 +128,14 @@ int main() {
       tab[l1][c + 1] = '$';
       tab[l1][c + 2] = '$';
     } else if (r == 1 && o == 2) {
+
       l1 = verif_bas(tab, c);
       tab[l1][c - 1] = '$';
       tab[l1 - 1][c - 1] = '$';
       tab[l1 - 2][c - 1] = '$';
       tab[l1 - 3][c - 1] = '$';
     } else if (r == 2 && o == 1) {
+
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
