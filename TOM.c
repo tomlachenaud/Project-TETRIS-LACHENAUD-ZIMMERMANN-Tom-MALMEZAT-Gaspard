@@ -1,5 +1,6 @@
 #include "print_rand_pieces.c"
 #include "print_table_V2.c"
+#include "verif_line.c"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -45,10 +46,10 @@ int main() {
   char S1[2][3] = {{' ', '$', '$'}, {'$', '$', ' '}};
   char S2[3][2] = {{'$', ' '}, {'$', '$'}, {' ', '$'}};
   for (j = 0; j < SIZE - 1; j++) {
-    tab[SIZE][j] = '*';
+    tab[SIZE+1][j] = '*';
   }
 
-  for (i = 1; i < SIZE - 1; i++) {
+  for (i = 1; i < SIZE; i++) {
     for (j = 0; j < SIZE - 1; j++) {
       tab[i][j] = ' ';
     }
@@ -176,9 +177,9 @@ int main() {
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
-      if (l1 > l2) {
+      if (l1 > l2+1) {
         l1 = l2;
-      } else if (l1 > l3) {
+      } else if (l1 > l3+1) {
         l1 = l3;
       }
       tab[l1][c - 1] = '$';
@@ -319,19 +320,53 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1][c] = '$';
     }
-    for (i=5;i<SIZE+4;i++){
-      for (j=1;j<SIZE;j++){
-        if (tab[i][j-1]=='$'){
-          z++;
-          }
+  int tablp [4]={5};
+  int ind =0;
+  for (int l =0;l<SIZE;l++){
+    if (verif_line (l,tab)==10){
+      ind++;
+      tablp[ind]=l;
+    }
+    if (ind == 4){
+      for (i=1;i<4;i++){
+        for (j=0;j<SIZE-1;j++){
+          tab[tablp[i+1]][j]='-';
         }
-      if (z==10){
-        for(j=1;j<SIZE-1;j++){
-          tab[i][j-1]=tab[i-1][j-1];
+      }
+    }
+    else if (ind == 3){
+      for (i=1;i<3;i++){
+        for (j=0;j<SIZE-1;j++){
+          tab[tablp[i+1]][j]='-';
+        }
+      }
+    }
+    else if (ind==2){
+      for (i=1;i<2;i++){
+        for(j=0;j<SIZE-1;j++){
+          tab[tablp[i+1]][j]='-';
+        }
+      }
+    }
+    else if (ind==1){
+      for(j=0;j<SIZE-1;j++){
+        tab[tablp[1]][j]='-';
+      }
+    }
+    for(j=0;j<SIZE-1;j++){
+      tab[0][j]=' ';
+    }
+     for(int l=0;l<SIZE;l++){
+    if (verif_void (l,tab)==10){
+      for (i=SIZE-1;i>-1;i--){
+        for (j=0;j<SIZE-1;j++){
+          tab[i+1][j]=tab[i][j];
+        }
       }
       }
       }
-  } while (l1 - 1 > 0);
+    }
+  } while (verif_high(1,tab)==10);
   aff_tab(tab);
   printf("GAME OVER!\n");
 }
