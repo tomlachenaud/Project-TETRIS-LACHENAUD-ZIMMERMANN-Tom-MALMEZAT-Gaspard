@@ -25,8 +25,10 @@ int verif_bas(char tab[SIZE + 4][SIZE], int c) {
 int main() {
   srand(time(NULL));
   char tab[SIZE + 4][SIZE] = {0};
-  int r, c, i, j, l1, l2, l3, l4, o, a,z;
+  int r, c, i, j, l1, l2, l3, l4, o, a,z,score;
+  char x;
   z=0;
+  score = 0;
   char I1[1][4] = {'$', '$', '$', '$'};
   char I2[4][1] = {'$', '$', '$', '$'};
   char O[2][2] = {{'$', '$'}, {'$', '$'}};
@@ -60,7 +62,7 @@ int main() {
   }
 
   do {
-    r = 0;
+    r = rand()%7;
 
     aff_tab(tab);
     if (r == 0) {
@@ -96,7 +98,7 @@ int main() {
     scanf("%d", &c);
     
     if (r == 0) {
-      if(c>9){
+      while(c>9||c<1){
         printf("erreur ressaisir colonne");
         scanf("%d",&c);
       }
@@ -110,7 +112,10 @@ int main() {
       tab[l1][c] = '$';
       tab[l1 - 1][c] = '$';
     } else if (r == 1 && o == 1) {
-
+      while(c>7||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -128,6 +133,10 @@ int main() {
       tab[l1][c + 1] = '$';
       tab[l1][c + 2] = '$';
     } else if (r == 1 && o == 2) {
+      while(c>10||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
 
       l1 = verif_bas(tab, c);
       tab[l1][c - 1] = '$';
@@ -135,6 +144,10 @@ int main() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1 - 3][c - 1] = '$';
     } else if (r == 2 && o == 1) {
+      while(c>8||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
 
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
@@ -152,6 +165,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 2 && o == 2) {
+      while(c>9||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 > l2) {
@@ -162,6 +179,10 @@ int main() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1 - 1][c] = '$';
     } else if (r == 2 && o == 3) {
+      while(c>8||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -175,6 +196,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1][c + 1] = '$';
     } else if (r == 2 && o == 4) {
+      while(c>9||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 + 1 > l2) {
@@ -187,6 +212,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 3 && o == 1) {
+      while(c>8||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+      }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -200,6 +229,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 3 && o == 2) {
+      while(c>9||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+      }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 > l2) {
@@ -210,6 +243,10 @@ int main() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1][c] = '$';
     } else if (r == 3 && o == 3) {
+      while(c>8||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+      }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -223,6 +260,10 @@ int main() {
       tab[l1][c + 1] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 3 && o == 4) {
+      while(c>9||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+      }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 + 2 > l2) {
@@ -235,6 +276,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 4 && o == 1) {
+      while(c>8||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -250,6 +295,10 @@ int main() {
       tab[l1][c + 1] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 4 && o == 2) {
+      while(c>9||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 > l2) {
@@ -260,6 +309,10 @@ int main() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 4 && o == 3) {
+      while(c>8||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -273,6 +326,10 @@ int main() {
       tab[l1][c] = '$';
       tab[l1][c + 1] = '$';
     } else if (r == 4 && o == 4) {
+      while(c>9||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 > l2) {
@@ -283,6 +340,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 5 && o == 1) {
+      while(c>8||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -298,6 +359,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1][c + 1] = '$';
     } else if (r == 5 && o == 2) {
+      while(c>9||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 > l2) {
@@ -308,6 +373,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 6 && o == 1) {
+      while(c>8||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       l3 = verif_bas(tab, c + 2);
@@ -321,6 +390,10 @@ int main() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 6 && o == 2) {
+      while(c>9||c<1){
+        printf("erreur ressaisir colonne");
+        scanf("%d",&c);
+        }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
       if (l1 + 1 > l2) {
@@ -341,6 +414,7 @@ int main() {
       tablp[ind]=l;
     }
     if (ind == 4){
+      score=score+1200;
       for (i=1;i<4;i++){
         for (j=0;j<SIZE-1;j++){
           tab[tablp[i+1]][j]='-';
@@ -348,6 +422,7 @@ int main() {
       }
     }
     else if (ind == 3){
+      score=score+300;
       for (i=1;i<3;i++){
         for (j=0;j<SIZE-1;j++){
           tab[tablp[i+1]][j]='-';
@@ -355,6 +430,7 @@ int main() {
       }
     }
     else if (ind==2){
+      score=score+100;
       for (i=1;i<2;i++){
         for(j=0;j<SIZE-1;j++){
           tab[tablp[i+1]][j]='-';
@@ -362,8 +438,13 @@ int main() {
       }
     }
     else if (ind==1){
+      score=score+40;
       for(j=0;j<SIZE-1;j++){
         tab[tablp[1]][j]='-';
+      }
+      }
+      else{
+      score=score;
       }
     }
     for(j=0;j<SIZE-1;j++){
@@ -378,8 +459,28 @@ int main() {
       }
       }
       }
-    }
+
+    printf("SCORE : %d\n",score);
   } while (verif_high(1,tab)==10);
   aff_tab(tab);
   printf("GAME OVER!\n");
+printf("Votre score est %d\n",score);
+  char g[1000];
+  int q;
+  FILE* SCORE =NULL;
+  SCORE = fopen("high_score.txt","r");
+  fscanf(SCORE,"%s",&x);
+  q= atoi(&x);
+  if(score<q){
+  printf ("Le meilleur score est %d",q);
+    fclose(SCORE);
+    }
+  else{
+    SCORE = fopen("high_score.txt","w");
+    sprintf(g,"%d",score);
+    fputs(g,SCORE);
+    fscanf(SCORE,"%s",&x);
+    printf("Le meilleur score est %d",score);
+    fclose(SCORE);
+    }
 }
