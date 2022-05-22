@@ -25,6 +25,11 @@ int verif_bas(char tab[SIZE + 4][SIZE], int c) {
 int main() {
   srand(time(NULL));
   char tab[SIZE + 4][SIZE] = {0};
+  char g[1000];
+  char n[1000];
+  char name;
+  char hn;
+  int q;
   int r, c, i, j, l1, l2, l3, l4, o, a, z, score;
   char x;
   z = 0;
@@ -60,9 +65,11 @@ int main() {
   for (i = 0; i < SIZE; i++) {
     tab[i][10] = ' ';
   }
-
+  printf("Saisir votre nom");
+  scanf("%s",&name);
+  printf("%s",&name);
   do {
-    r = rand()%7;
+    r = 1;
 
     aff_tab(tab);
     if (r == 0) {
@@ -485,21 +492,34 @@ int main() {
   aff_tab(tab);
   printf("GAME OVER!\n");
   printf("Votre score est %d\n", score);
-  char g[1000];
-  int q;
+  FILE *NAME=NULL;
+  NAME = fopen("Name.txt","r");
   FILE *SCORE = NULL;
+  printf("%s",&name);
   SCORE = fopen("high_score.txt", "r");
   fscanf(SCORE, "%s", &x);
+    printf("%s",&name);
+
   q = atoi(&x);
+    printf("%s",&name);
+
   if (score < q) {
-    printf("Le meilleur score est %d", q);
+    fscanf(NAME,"%s",&hn);
+      printf("%s",&name);
+
+    printf("Le meilleur score est %d par %c",q,hn);
     fclose(SCORE);
+    fclose(NAME);
   } else {
+    
     SCORE = fopen("high_score.txt", "w");
+    NAME = fopen("Name.txt","w");
+    sprintf(n,"%s",&name);
     sprintf(g, "%d", score);
+    fputs(n,NAME);
     fputs(g, SCORE);
-    fscanf(SCORE, "%s", &x);
-    printf("Le meilleur score est %d", score);
     fclose(SCORE);
+    fclose(NAME);
+    printf("Le meilleur score est %d par %s", score,&name);
   }
 }
