@@ -62,7 +62,7 @@ int main() {
   }
 
   do {
-    r = 1;
+    r = rand()%7;
 
     aff_tab(tab);
     if (r == 0) {
