@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 #define SIZE 11
 
 int verif_bas(char tab[SIZE + 4][SIZE], int c) {
@@ -28,7 +29,7 @@ int main() {
   char g[1000];
   char n[1000];
   char name;
-  char hn;
+  //char hn;
   int q;
   int r, c, i, j, l1, l2, l3, l4, o, a, z, score;
   char x;
@@ -66,10 +67,12 @@ int main() {
     tab[i][10] = ' ';
   }
   printf("Saisir votre nom");
-  scanf("%s",&name);
-  printf("%s",&name);
+  scanf("%s", &name);
+  printf("%s", &name);
   do {
     r = 1;
+    o=0;
+    c=0;
 
     aff_tab(tab);
     if (r == 0) {
@@ -79,10 +82,16 @@ int main() {
       printf("Choisir l'orientation de la pièce\n");
       pieceI(I1, I2);
       scanf("%d", &o);
+      sleep(10);
+      if (o==0){
+          o=(rand()%2)+1;
+        }
       while (o < 1 || o > 2) {
         printf("Erreur Choisir l'orientation de la pièce");
         scanf("%d", &o);
+        
       }
+      
     } else if (r == 2) {
       printf("Choisir l'orientation de la pièce\n");
       pieceT(T1, T2, T3, T4);
@@ -122,6 +131,7 @@ int main() {
       while (o < 1 || o > 2) {
         printf("Erreur Choisir l'orientation de la pièce");
         scanf("%d", &o);
+        
       }
     }
 
@@ -143,9 +153,13 @@ int main() {
       tab[l1][c] = '$';
       tab[l1 - 1][c] = '$';
     } else if (r == 1 && o == 1) {
+
       while (c > 7 || c < 1) {
         printf("erreur ressaisir colonne");
         scanf("%d", &c);
+      }
+      if (sleep(10)==0&&c==0){
+        c=(rand()%7)+1;
       }
       l1 = verif_bas(tab, c);
       l2 = verif_bas(tab, c + 1);
@@ -167,6 +181,9 @@ int main() {
       while (c > 10 || c < 1) {
         printf("erreur ressaisir colonne");
         scanf("%d", &c);
+      }
+      if (sleep(10)==0&&c==0){
+        c=(rand()%10)+1;
       }
 
       l1 = verif_bas(tab, c);
@@ -436,6 +453,7 @@ int main() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1 - 1][c] = '$';
       tab[l1][c] = '$';
+      
     }
     int tablp[4] = {5};
     int ind = 0;
@@ -489,37 +507,41 @@ int main() {
 
     printf("SCORE : %d\n", score);
   } while (verif_high(1, tab) == 10);
+
   aff_tab(tab);
   printf("GAME OVER!\n");
   printf("Votre score est %d\n", score);
-  FILE *NAME=NULL;
-  NAME = fopen("Name.txt","r");
+  FILE *NAME = NULL;
+  NAME = fopen("Name.txt", "r");
   FILE *SCORE = NULL;
-  printf("%s",&name);
+  printf("%s", &name);
   SCORE = fopen("high_score.txt", "r");
-  fscanf(SCORE, "%s", &x);
-    printf("%s",&name);
+  char tableau[1000];
+  char hn[1000];
+  fgets(tableau,999,SCORE);
+  //fscanf(SCORE, "%s", &x);
+  printf("%s", &name);
 
   q = atoi(&x);
-    printf("%s",&name);
+  printf("%s", &name);
 
   if (score < q) {
-    fscanf(NAME,"%s",&hn);
-      printf("%s",&name);
+    //fscanf(NAME, "%s", &hn);
+    fgets(hn,999,NAME);
+    printf("%s", &name);
 
-    printf("Le meilleur score est %d par %c",q,hn);
+    printf("Le meilleur score est %d par %s", q, hn);
     fclose(SCORE);
     fclose(NAME);
   } else {
-    
+
     SCORE = fopen("high_score.txt", "w");
-    NAME = fopen("Name.txt","w");
-    sprintf(n,"%s",&name);
+    NAME = fopen("Name.txt", "w");
     sprintf(g, "%d", score);
-    fputs(n,NAME);
+    fputs(n, NAME);
     fputs(g, SCORE);
     fclose(SCORE);
     fclose(NAME);
-    printf("Le meilleur score est %d par %s", score,&name);
+    printf("Le meilleur score est %d par %s", score, &name);
   }
 }
