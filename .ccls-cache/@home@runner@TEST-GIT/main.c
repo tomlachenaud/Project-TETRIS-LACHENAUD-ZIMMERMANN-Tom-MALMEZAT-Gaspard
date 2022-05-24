@@ -7,9 +7,10 @@
 
 int main(){
 int d = verif_int_diff();
+  
   int t;
     if (d==1){
-      t=15;
+      t=20;
     }
   else if(d==2){
     t=10;
