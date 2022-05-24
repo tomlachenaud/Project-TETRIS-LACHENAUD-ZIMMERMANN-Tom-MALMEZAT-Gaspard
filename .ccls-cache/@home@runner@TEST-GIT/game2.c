@@ -30,7 +30,7 @@ int verif_bas(char tab[SIZE + 4][SIZE], int c) {
   } while (z < SIZE + 4);
 }
 
-void game2() {
+int game2() {
   srand(time(NULL));
   char tab[SIZE + 4][SIZE] = {0};
   char g[1000];
