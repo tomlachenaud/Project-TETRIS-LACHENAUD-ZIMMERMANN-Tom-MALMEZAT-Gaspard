@@ -7,7 +7,7 @@
 #include <time.h>
 #include <unistd.h>
 #define SIZE 11
-
+//check the line to know where to stop the pieces when put in the table
 int verif_bas(char tab[SIZE + 4][SIZE], int c) {
   int z = 0;
   int l1, l2;
@@ -35,6 +35,7 @@ int main() {
   char x;
   z = 0;
   score = 0;
+  //define all the pieces
   char I1[1][4] = {'$', '$', '$', '$'};
   char I2[4][1] = {'$', '$', '$', '$'};
   char O[2][2] = {{'$', '$'}, {'$', '$'}};
@@ -54,10 +55,11 @@ int main() {
   char Z2[3][2] = {{' ', '$'}, {'$', '$'}, {'$', ' '}};
   char S1[2][3] = {{' ', '$', '$'}, {'$', '$', ' '}};
   char S2[3][2] = {{'$', ' '}, {'$', '$'}, {' ', '$'}};
+  //fill the last line to stop the pieces when put into the table
   for (j = 0; j < SIZE - 1; j++) {
     tab[SIZE + 1][j] = '*';
   }
-
+//fill the rest of the table with void
   for (i = 1; i < SIZE; i++) {
     for (j = 0; j < SIZE - 1; j++) {
       tab[i][j] = ' ';
@@ -73,7 +75,7 @@ int main() {
     r = 1;
     o=0;
     c=0;
-
+//print the pieces and ask the player to choose its orientation
     aff_tab(tab);
     if (r == 0) {
       printf("Voici la pièce\n");
@@ -134,7 +136,7 @@ int main() {
         
       }
     }
-
+//ask the player the column he want to put the piece
     printf("Saisir une colonne");
     scanf("%d", &c);
 

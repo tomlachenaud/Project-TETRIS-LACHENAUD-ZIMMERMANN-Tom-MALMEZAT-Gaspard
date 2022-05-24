@@ -7,7 +7,7 @@
 
 int main(){
 int d = verif_int_diff();
-  
+  //allows the player to choose the difficulty of the game
   int t;
     if (d==1){
       t=20;

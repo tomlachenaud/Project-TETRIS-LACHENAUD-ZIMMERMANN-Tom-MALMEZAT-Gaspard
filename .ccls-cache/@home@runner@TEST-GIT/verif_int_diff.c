@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+//verify if the scanf get a type int and not a type char
 int verif_int_diff(){
   int boo=0;
   int o;

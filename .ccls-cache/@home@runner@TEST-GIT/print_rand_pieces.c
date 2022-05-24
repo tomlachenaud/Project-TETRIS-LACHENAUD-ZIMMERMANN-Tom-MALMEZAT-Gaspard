@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+//print a table with the pieces 
 void pieceO(char tab[2][2]){
   int i,j;
   for (i=0;i<2;i++){

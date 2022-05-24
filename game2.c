@@ -8,13 +8,13 @@
 #include <sys/time.h>
 #include <time.h>
 #define SIZE 11
-
+//use to initiate the timer 
 unsigned long getTimeMicroSec() {
   struct timeval tv;
   gettimeofday(&tv, NULL);
   return (1000000 * tv.tv_sec) + tv.tv_usec;
 }
-
+//check the line to know where to stop the pieces when put in the table
 int verif_bas(char tab[SIZE + 4][SIZE], int c) {
   int z = 0;
   int l1, l2;
@@ -44,6 +44,7 @@ int game2(int d) {
   z = 0;
   score = 0;
   int boo = 0;
+    //define all the pieces
   char I1[1][4] = {'$', '$', '$', '$'};
   char I2[4][1] = {'$', '$', '$', '$'};
   char O[2][2] = {{'$', '$'}, {'$', '$'}};
@@ -63,10 +64,11 @@ int game2(int d) {
   char Z2[3][2] = {{' ', '$'}, {'$', '$'}, {'$', ' '}};
   char S1[2][3] = {{' ', '$', '$'}, {'$', '$', ' '}};
   char S2[3][2] = {{'$', ' '}, {'$', '$'}, {' ', '$'}};
+  //fill the last line to stop the pieces when put into the table
   for (j = 0; j < SIZE - 1; j++) {
     tab[SIZE + 1][j] = '*';
   }
-
+//fill the rest of the table with void
   for (i = 1; i < SIZE; i++) {
     for (j = 0; j < SIZE - 1; j++) {
       tab[i][j] = ' ';
@@ -77,7 +79,7 @@ int game2(int d) {
   }
   do {
     r = rand() % 7;
-
+//print the pieces and ask the player to choose its orientation
     aff_tab(tab);
     unsigned long time1 = getTimeMicroSec();
     if (r == 0) {
@@ -105,7 +107,7 @@ int game2(int d) {
       pieceZ(Z1, Z2);
       o = verif_int2();
     }
-
+//ask the player the column he want to put the piece
     c = o = verif_int10();
     unsigned long time2 = getTimeMicroSec();
     if (r == 1) {
@@ -139,6 +141,7 @@ int game2(int d) {
         o = rand() % 2 + 1;
       }
     }
+    //put the pieces int the table
     if (r == 0) {
       if (c > 9 || c < 1) {
         c = verif_int9();
@@ -487,6 +490,7 @@ int game2(int d) {
       tab[l1 - 1][c] = '$';
       tab[l1][c] = '$';
     }
+    //delete the completed line
     int tablp[4] = {5};
     int ind = 0;
     for (int l = 0; l < SIZE; l++) {
@@ -494,6 +498,7 @@ int game2(int d) {
         ind++;
         tablp[ind] = l;
       }
+      //calculates the score according to the number of line deleted
       if (ind == 4) {
         score = score + 1200;
         for (i = 1; i < 4; i++) {
@@ -527,6 +532,7 @@ int game2(int d) {
     for (j = 0; j < SIZE - 1; j++) {
       tab[0][j] = ' ';
     }
+    //drop all the line according to the number of line deleted
     for (int l = 0; l < SIZE; l++) {
       if (verif_void(l, tab) == 10) {
         for (i = SIZE - 1; i > -1; i--) {
@@ -551,7 +557,7 @@ int game2(int d) {
   fgets(tableau, 999, SCORE);
 
   q = atoi(tableau);
-
+//if the score is bigger than the actual high score it delet the score and name an replace it with the actual score and name 
   if (score > q) {
 
     SCORE = fopen("high_score.txt", "w");
@@ -561,6 +567,7 @@ int game2(int d) {
     fputs(n, NAME);
     fputs(g, SCORE);
     printf("Le meilleur score est %d par %s", score, &name);
+    //if the score is smaller than the high score it get the high score with its name and print it 
   } else {
 
     fscanf(NAME, "%s", &hn);
