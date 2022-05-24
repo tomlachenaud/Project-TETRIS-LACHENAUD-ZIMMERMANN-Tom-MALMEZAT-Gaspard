@@ -83,7 +83,7 @@ int game2(int d) {
     aff_tab(tab);
     unsigned long time1 = getTimeMicroSec();
     if (r == 0) {
-      printf("Voici la pièce\n");
+      printf("Here is the piece\n");
       pieceO(O);
     } else if (r == 1) {
       pieceI(I1, I2);
@@ -112,32 +112,32 @@ int game2(int d) {
     unsigned long time2 = getTimeMicroSec();
     if (r == 1) {
       if ((time2 - time1) / 1000000 > d) {
-        printf("you took too much time\n");
+        printf("You took too much time\n");
         o = rand() % 2 + 1;
       }
     } else if (r == 2) {
       if ((time2 - time1) / 1000000 > d) {
-        printf("you took too much time\n");
+        printf("You took too much time\n");
         o = rand() % 4 + 1;
       }
     } else if (r == 3) {
       if ((time2 - time1) / 1000000 > d) {
-        printf("you took too much time\n");
+        printf("You took too much time\n");
         o = rand() % 4 + 1;
       }
     } else if (r == 4) {
       if ((time2 - time1) / 1000000 > d) {
-        printf("you took too much time\n");
+        printf("You took too much time\n");
         o = rand() % 4 + 1;
       }
     } else if (r == 5) {
       if ((time2 - time1) / 1000000 > d) {
-        printf("you took too much time\n");
+        printf("You took too much time\n");
         o = rand() % 2 + 1;
       }
     } else if (r == 6) {
       if ((time2 - time1) / 1000000 > d) {
-        printf("you took too much time\n");
+        printf("You took too much time\n");
         o = rand() % 2 + 1;
       }
     }
@@ -147,7 +147,7 @@ int game2(int d) {
         c = verif_int9();
       }
       if ((time2 - time1) / 1000000 > d) {
-        printf("you took too much time\n");
+        printf("You took too much time\n");
         c = rand() % 9 + 1;
       }
       l1 = verif_bas(tab, c);
@@ -546,33 +546,33 @@ int game2(int d) {
   } while (verif_high(1, tab) == 10);
   aff_tab(tab);
   printf("GAME OVER!\n");
-  printf("Saisir votre nom\n");
+  printf("Enter your name\n");
   scanf("%s", &name);
-  printf("Votre score est %d\n", score);
+  printf("Your score is %d\n", score);
   FILE *NAME = NULL;
   NAME = fopen("Name.txt", "r");
   FILE *SCORE = NULL;
   SCORE = fopen("high_score.txt", "r");
   NAME = fopen("Name.txt", "r");
   fgets(tableau, 999, SCORE);
-
   q = atoi(tableau);
 //if the score is bigger than the actual high score it delet the score and name an replace it with the actual score and name 
   if (score > q) {
 
     SCORE = fopen("high_score.txt", "w");
     NAME = fopen("Name.txt", "w");
+
     sprintf(g, "%d", score);
     sprintf(n, "%s", &name);
     fputs(n, NAME);
     fputs(g, SCORE);
-    printf("Le meilleur score est %d par %s", score, &name);
+    printf("The highscore is %d by %s", score, &name);
     //if the score is smaller than the high score it get the high score with its name and print it 
   } else {
 
     fscanf(NAME, "%s", &hn);
 
-    printf("Le meilleur score est %d par %s", q, &hn);
+    printf("The highscore is %d by %s", q, &hn);
     fclose(SCORE);
     fclose(NAME);
   }
