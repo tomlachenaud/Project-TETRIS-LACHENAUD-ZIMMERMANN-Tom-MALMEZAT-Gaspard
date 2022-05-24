@@ -30,7 +30,7 @@ int verif_bas(char tab[SIZE + 4][SIZE], int c) {
   } while (z < SIZE + 4);
 }
 
-int game2() {
+int game2(int d) {
   srand(time(NULL));
   char tab[SIZE + 4][SIZE] = {0};
   char g[1000];
@@ -109,32 +109,32 @@ int game2() {
     c = o = verif_int10();
     unsigned long time2 = getTimeMicroSec();
     if (r == 1) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         printf("you took too much time\n");
         o = rand() % 2 + 1;
       }
     } else if (r == 2) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         printf("you took too much time\n");
         o = rand() % 4 + 1;
       }
     } else if (r == 3) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         printf("you took too much time\n");
         o = rand() % 4 + 1;
       }
     } else if (r == 4) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         printf("you took too much time\n");
         o = rand() % 4 + 1;
       }
     } else if (r == 5) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         printf("you took too much time\n");
         o = rand() % 2 + 1;
       }
     } else if (r == 6) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         printf("you took too much time\n");
         o = rand() % 2 + 1;
       }
@@ -143,7 +143,7 @@ int game2() {
       if (c > 9 || c < 1) {
         c = verif_int9();
       }
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         printf("you took too much time\n");
         c = rand() % 9 + 1;
       }
@@ -157,7 +157,7 @@ int game2() {
       tab[l1][c] = '$';
       tab[l1 - 1][c] = '$';
     } else if (r == 1 && o == 1) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 7 + 1;
       }
       if (c > 7 || c < 1) {
@@ -180,7 +180,7 @@ int game2() {
       tab[l1][c + 1] = '$';
       tab[l1][c + 2] = '$';
     } else if (r == 1 && o == 2) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 10 + 1;
       }
       if (c > 10 || c < 1) {
@@ -193,7 +193,7 @@ int game2() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1 - 3][c - 1] = '$';
     } else if (r == 2 && o == 1) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 8 + 1;
       }
       if (c > 8 || c < 1) {
@@ -216,7 +216,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 2 && o == 2) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 9 + 1;
       }
       if (c > 9 || c < 1) {
@@ -232,7 +232,7 @@ int game2() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1 - 1][c] = '$';
     } else if (r == 2 && o == 3) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 8 + 1;
       }
       if (c > 8 || c < 1) {
@@ -251,7 +251,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1][c + 1] = '$';
     } else if (r == 2 && o == 4) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 9 + 1;
       }
       if (c > 9 || c < 1) {
@@ -269,7 +269,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 3 && o == 1) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 8 + 1;
       }
       if (c > 8 || c < 1) {
@@ -288,7 +288,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 3 && o == 2) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 9 + 1;
       }
       if (c > 9 || c < 1) {
@@ -304,7 +304,7 @@ int game2() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1][c] = '$';
     } else if (r == 3 && o == 3) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 8 + 1;
       }
       if (c > 8 || c < 1) {
@@ -323,7 +323,7 @@ int game2() {
       tab[l1][c + 1] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 3 && o == 4) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 9 + 1;
       }
       if (c > 9 || c < 1) {
@@ -341,7 +341,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 4 && o == 1) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 8 + 1;
       }
       if (c > 8 || c < 1) {
@@ -362,7 +362,7 @@ int game2() {
       tab[l1][c + 1] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 4 && o == 2) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 9 + 1;
       }
       if (c > 9 || c < 1) {
@@ -378,7 +378,7 @@ int game2() {
       tab[l1 - 2][c - 1] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 4 && o == 3) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 8 + 1;
       }
       if (c > 8 || c < 1) {
@@ -397,7 +397,7 @@ int game2() {
       tab[l1][c] = '$';
       tab[l1][c + 1] = '$';
     } else if (r == 4 && o == 4) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 9 + 1;
       }
       if (c > 9 || c < 1) {
@@ -413,7 +413,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 5 && o == 1) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 8 + 1;
       }
       if (c > 8 || c < 1) {
@@ -434,7 +434,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1][c + 1] = '$';
     } else if (r == 5 && o == 2) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 9 + 1;
       }
       if (c > 9 || c < 1) {
@@ -450,7 +450,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 2][c] = '$';
     } else if (r == 6 && o == 1) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 8 + 1;
       }
       if (c > 8 || c < 1) {
@@ -469,7 +469,7 @@ int game2() {
       tab[l1 - 1][c] = '$';
       tab[l1 - 1][c + 1] = '$';
     } else if (r == 6 && o == 2) {
-      if ((time2 - time1) / 1000000 > 10) {
+      if ((time2 - time1) / 1000000 > d) {
         c = rand() % 9 + 1;
       }
       if (c > 9 || c < 1) {
