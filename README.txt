@@ -1,0 +1,3 @@
+Hi Player ! If tou want to play to our tetris well just write in the console "make -f Makefile" to compile the code and then type "./exec" and enjoy ! Oh and just one more thing when you need to choose the column and the orientations of the pieces just type int or you will need to type again :).
+
+If you don't know how to play well it's simple, it's just the basic rules of TETRIS but with something less... The pieces don't fall frame by frame they fall directly down bellow so be carefull when you choose where to put your pieces. And one more thing if you're to long to play the column and orientations whill be choose randomly. Good game and enjoy playing our version of TETRIS.
