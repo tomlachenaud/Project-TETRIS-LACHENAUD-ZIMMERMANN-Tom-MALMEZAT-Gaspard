@@ -1,7 +1,10 @@
 all : exec
 
-main.o : main.c game2.o
+main.o : main.c game2.o verif_int_diff.o
 	gcc -c main.c -o main.o
+
+verif_int_diff.o : verif_int_diff.c
+	gcc -c verif_int_diff.c -o verif_int_diff.o
 
 game2.o : game2.c  print_table_V2.o verif_int.o verif_line.o verify_column.o print_rand_pieces.o
 	gcc -c game2.c -o game2.o
